@@ -5,8 +5,9 @@ import evaluate
 from transformers import Seq2SeqTrainer, Seq2SeqTrainingArguments, EarlyStoppingCallback
 import numpy as np
 
+
 class ModelTraining:
-    def __init__(self):ß
+    def __init__(self):
         self.metric = evaluate.load("rouge")
         self.ds = Tokenizer().processing_dataset()
 
@@ -40,8 +41,6 @@ class ModelTraining:
             learning_rate=2e-5,
             eval_strategy="epoch",
             predict_with_generate=True,
-            fp16 = True
-
         )
 
         trainer = Seq2SeqTrainer(

@@ -1,6 +1,5 @@
 import torch
 from datasets import load_dataset
-import evaluate
 
 class LoadDataset:
     def load_data(self):
