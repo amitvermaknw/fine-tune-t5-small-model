@@ -32,7 +32,6 @@ class ModelTraining:
             per_device_eval_batch_size=4,
             warmup_steps=100,
             weight_decay=0.01,
-            logging_dir="./logs",
             logging_steps=50,
             save_strategy="epoch",
             load_best_model_at_end=True, 
@@ -49,7 +48,7 @@ class ModelTraining:
             train_dataset= self.ds.tokenized_train_dataset,
             eval_dataset=self.ds.tokenized_validation_dataset,
             compute_metrics=self.calculate_metrics,
-            tokenizer=self.ds.ct.tokenizer,
+            processing_class=self.ds.ct.tokenizer,
             callbacks=[EarlyStoppingCallback(
                 early_stopping_patience=3,
                 early_stopping_threshold=0.001
